@@ -20,6 +20,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      padding: 40px 20px;
       overflow-x: hidden;
       position: relative;
     }
@@ -27,7 +28,7 @@
     /* Animated Grid Background */
     body::before {
       content: "";
-      position: absolute;
+      position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       background: 
         linear-gradient(to right, rgba(0, 242, 254, 0.03) 1px, transparent 1px),
@@ -39,23 +40,24 @@
 
     /* Ambient Glowing Orbs */
     .orb {
-      position: absolute;
-      width: 300px;
-      height: 300px;
+      position: fixed;
+      width: 350px;
+      height: 350px;
       border-radius: 50%;
-      filter: blur(100px);
+      filter: blur(120px);
       z-index: 0;
-      opacity: 0.5;
+      opacity: 0.4;
       animation: float 8s ease-in-out infinite alternate;
+      pointer-events: none;
     }
     .orb-1 {
       top: 10%;
-      left: 15%;
+      left: 10%;
       background: #4f46e5;
     }
     .orb-2 {
-      bottom: 15%;
-      right: 15%;
+      bottom: 10%;
+      right: 10%;
       background: #00f2fe;
       animation-delay: -4s;
     }
@@ -70,7 +72,7 @@
       position: relative;
       z-index: 1;
       max-width: 800px;
-      width: 90%;
+      width: 100%;
       padding: 40px;
       background: rgba(13, 18, 36, 0.65);
       backdrop-filter: blur(16px);
@@ -117,6 +119,13 @@
       margin: 0 auto 36px auto;
     }
 
+    /* Module Grid List */
+    .cards-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
     /* Interactive Card Link */
     .card-link {
       display: block;
@@ -124,7 +133,7 @@
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 16px;
-      padding: 24px;
+      padding: 20px 24px;
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
       overflow: hidden;
@@ -144,7 +153,7 @@
     }
 
     .card-link:hover {
-      transform: translateY(-4px);
+      transform: translateY(-3px);
       border-color: rgba(0, 242, 254, 0.6);
       background: rgba(0, 242, 254, 0.05);
       box-shadow: 0 10px 30px -10px rgba(0, 242, 254, 0.3);
@@ -163,32 +172,32 @@
 
     .card-title {
       color: #ffffff;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: 4px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
     .card-desc {
-      color: #64748b;
+      color: #94a3b8;
       font-size: 0.95rem;
     }
 
     /* Glowing Action Icon */
     .action-btn {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background: #00f2fe;
       color: #050811;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: bold;
-      box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
       transition: transform 0.3s ease;
       flex-shrink: 0;
     }
@@ -205,7 +214,7 @@
 
     /* Responsive Adjustments */
     @media (max-width: 600px) {
-      .container { padding: 24px; }
+      .container { padding: 24px 16px; }
       h1 { font-size: 2rem; }
       .card-content { flex-direction: column; align-items: flex-start; }
       .action-btn { align-self: flex-end; }
@@ -222,20 +231,74 @@
   <div class="container">
     <span class="badge">AI Intelligence Portal</span>
     <h1>Explore the Future of AI</h1>
-    <p class="subtitle">Step into a curated journey through modern artificial intelligence concepts, frameworks, and breakthroughs.</p>
+    <p class="subtitle">Step into a curated journey through modern artificial intelligence concepts, frameworks, and deployment strategies.</p>
 
-    <!-- Interactive Link Card -->
-    <a href="https://sunilkrbajpai.github.io/AI-Topics/day1.html" class="card-link">
-      <div class="card-content">
-        <div class="card-text">
-          <div class="card-title">
-            <span>🚀</span> Day 1: Foundations & Architecture
+    <div class="cards-grid">
+      <!-- Day 1 Link -->
+      <a href="https://sunilkrbajpai.github.io/AI-Topics/day1.html" class="card-link">
+        <div class="card-content">
+          <div class="card-text">
+            <div class="card-title">
+              <span>🚀</span> Day 1: Foundations & Architecture
+            </div>
+            <div class="card-desc">Begin your reading session with core AI principles and foundational models.</div>
           </div>
-          <div class="card-desc">Begin your reading session with core AI principles and initial concepts.</div>
+          <div class="action-btn">→</div>
         </div>
-        <div class="action-btn">→</div>
-      </div>
-    </a>
+      </a>
+
+      <!-- Day 2 Link -->
+      <a href="https://sunilkrbajpai.github.io/AI-Topics/day2.html" class="card-link">
+        <div class="card-content">
+          <div class="card-text">
+            <div class="card-title">
+              <span>⚡</span> Day 2: Advanced Topics & Workflows
+            </div>
+            <div class="card-desc">Dive deeper into advanced machine learning algorithms and system mechanics.</div>
+          </div>
+          <div class="action-btn">→</div>
+        </div>
+      </a>
+
+      <!-- Day 3 Link -->
+      <a href="https://sunilkrbajpai.github.io/AI-Topics/day3.html" class="card-link">
+        <div class="card-content">
+          <div class="card-text">
+            <div class="card-title">
+              <span>🧠</span> Day 3: Neural Networks & LLMs
+            </div>
+            <div class="card-desc">Explore deep learning architectures, context windows, and modern LLM paradigms.</div>
+          </div>
+          <div class="action-btn">→</div>
+        </div>
+      </a>
+
+      <!-- Docker Link -->
+      <a href="https://sunilkrbajpai.github.io/AI-Topics/docker.html" class="card-link">
+        <div class="card-content">
+          <div class="card-text">
+            <div class="card-title">
+              <span>🐳</span> Docker & Containerization
+            </div>
+            <div class="card-desc">Learn how to package, ship, and run AI and machine learning workloads efficiently.</div>
+          </div>
+          <div class="action-btn">→</div>
+        </div>
+      </a>
+
+      <!-- Day 6 Link -->
+      <a href="https://sunilkrbajpai.github.io/AI-Topics/day6.html" class="card-link">
+        <div class="card-content">
+          <div class="card-text">
+            <div class="card-title">
+              <span>🔮</span> Day 6: Production & Deployment
+            </div>
+            <div class="card-desc">Master deploying, scaling, and monitoring AI models in real-world production setups.</div>
+          </div>
+          <div class="action-btn">→</div>
+        </div>
+      </a>
+    </div>
   </div>
 
 </body>
